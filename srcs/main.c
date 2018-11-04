@@ -6,7 +6,7 @@
 /*   By: agrumbac <agrumbac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 18:04:47 by agrumbac          #+#    #+#             */
-/*   Updated: 2018/11/04 19:05:28 by agrumbac         ###   ########.fr       */
+/*   Updated: 2018/11/04 20:39:39 by agrumbac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int		main(__unused int ac, __unused char **av)
 {
-	ft_printf("Hello from __PROJECT_NAME__!\n");
+	ft_putstr("Hello from __PROJECT_NAME__!\n");
 	return (0);
 }

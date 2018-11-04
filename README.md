@@ -13,6 +13,12 @@ git clone https://github.com/grumbach/project_init.git && cd project_init
 
 sed -e 's:/Users/agrumbac/Documents/github/project_init:'"`pwd`"':g' project_init.bash > .TMP && mv -f .TMP project_init.bash
 
+# Setup your own libft (change your_libft_repo)
+
+your_libft_repo="github.com/"`whoami`"/libft"
+
+sed -e 's:github.com/grumbach/libft:'"$your_libft_repo"':g' Makefile > .TMP && mv -f .TMP Makefile
+
 # Make executable
 
 chmod +x project_init.bash
@@ -24,4 +30,4 @@ echo "alias init='"`pwd`"/project_init.bash'" >> ~/.bash_profile
 echo "alias init='"`pwd`"/project_init.bash'" >> ~/.zshrc
 ```
 
-Remember to use your own ```libft``` and ```file headers```!
+Remember to use your own ```file headers```!

@@ -20,7 +20,7 @@
 #
 # (3) Please set your template project path:
 
-template_path="/Users/agrumbac/Documents/github/project_init/"
+template_path="/Users/agrumbac/Documents/github/project_init"
 
 # ------------------------ All done. Enjoy! ------------------------
 

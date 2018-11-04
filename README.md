@@ -11,7 +11,7 @@ git clone https://github.com/grumbach/project_init.git && cd project_init
 
 # Setup your own path
 
-sed -e 's:/Users/agrumbac/Documents/github/project_init/:'"`pwd`"':g' project_init.bash > .TMP && mv -f .TMP project_init.bash
+sed -e 's:/Users/agrumbac/Documents/github/project_init:'"`pwd`"':g' project_init.bash > .TMP && mv -f .TMP project_init.bash
 
 # Make executable
 

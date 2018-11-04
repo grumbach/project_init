@@ -30,4 +30,4 @@ echo "alias init='"`pwd`"/project_init.bash'" >> ~/.bash_profile
 echo "alias init='"`pwd`"/project_init.bash'" >> ~/.zshrc
 ```
 
-Remember to use your own ```file headers```!
+Remember to use your own ```file headers```[!](https://github.com/grumbach/Piscine_CPP#git-clone-%E3%81%AE%E8%A1%93)

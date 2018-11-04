@@ -1,0 +1,7 @@
+*.o
+*.a
+.D*
+*.dSYM
+libft
+a.out
+__PROJECT_NAME__

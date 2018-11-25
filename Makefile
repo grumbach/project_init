@@ -6,7 +6,7 @@
 #    By: agrumbac <agrumbac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 17:19:11 by agrumbac          #+#    #+#              #
-#    Updated: 2018/11/04 19:26:20 by agrumbac         ###   ########.fr        #
+#    Updated: 2018/11/25 18:42:54 by agrumbac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,15 @@ OBJDIR = objs
 
 OBJ = $(addprefix ${OBJDIR}/, $(SRC:.c=.o))
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address,undefined -g
+DEP = $(addprefix ${OBJDIR}/, $(SRC:.c=.d))
+
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address,undefined -g -MMD
+
+LDFLAGS = -Ilibft/includes/ -Iincludes/
 
 LIB = -Llibft/ -lft
 
-INCLUDES = -Ilibft/includes/ -Iincludes/
-
-DEP = includes/__PROJECT_NAME__.h libft/libft.a
+EXT = libft/libft.a
 
 ############################## COLORS ##########################################
 
@@ -64,13 +66,13 @@ libft/%:
 
 ${NAME}: ${OBJ}
 	@echo ${B}Compiling [${NAME}]...${X}
-	@${CC} ${CFLAGS} ${INCLUDES} ${LIB} -o $@ ${OBJ}
+	@${CC} ${CFLAGS} ${LDFLAGS} ${LIB} -o $@ ${OBJ}
 	@echo ${G}Success"   "[${NAME}]${X}
 
-${OBJDIR}/%.o: ${SRCDIR}/%.c ${DEP}
+${OBJDIR}/%.o: ${SRCDIR}/%.c ${EXT}
 	@echo ${Y}Compiling [$@]...${X}
 	@/bin/mkdir -p ${OBJDIR}
-	@${CC} ${CFLAGS} ${INCLUDES} -c -o $@ $<
+	@${CC} ${CFLAGS} ${LDFLAGS} -c -o $@ $<
 	@printf ${UP}${CUT}
 
 ############################## GENERAL #########################################
@@ -88,7 +90,7 @@ fclean: clean
 	@/bin/rm -Rf ${NAME}.dSYM
 
 test: libft/libft.a
-	@${CC} -g ${INCLUDES} -fsanitize=address,undefined ${LIB} \
+	@${CC} -g ${LDFLAGS} -fsanitize=address,undefined ${LIB} \
 	-I. -o ${NAME} $(addprefix srcs/, ${SRC})
 
 re: fclean all
@@ -101,3 +103,5 @@ art:
 	@echo ${X}
 
 .PHONY: all clean fclean re art
+
+-include ${DEP}

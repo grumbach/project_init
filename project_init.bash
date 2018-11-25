@@ -6,7 +6,7 @@
 #    By: agrumbac <agrumbac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/04 17:49:26 by agrumbac          #+#    #+#              #
-#    Updated: 2018/11/04 19:24:46 by agrumbac         ###   ########.fr        #
+#    Updated: 2018/11/25 19:10:17 by agrumbac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,9 +51,13 @@ printf "                         ^ \n"$X
 
 # Starting a new project has never been simpler!
 
-printf $G"Project name: \e[0m"
-read name
-upper_case_name=`echo $name | awk '{print toupper($0)}'`
+if [ -z ${@} ]; then
+	printf $G"Project name: \e[0m"
+	read name
+	upper_case_name=`echo $name | awk '{print toupper($0)}'`
+else
+	name=$@
+fi
 
 # Project structure
 printf $B"["$G"OK"$B"] Generating "$Y"srcs"$B" and "$Y"includes"$B" folders\n"$X

@@ -1,5 +1,6 @@
 *.o
 *.a
+*.d
 .D*
 *.dSYM
 libft

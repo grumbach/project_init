@@ -26,8 +26,10 @@ chmod +x project_init.bash
 # Add alias to your .bash_profile or .zshrc
 
 echo "alias init='"`pwd`"/project_init.bash'" >> ~/.bash_profile
+source ~/.bash_profile
 # OR
 echo "alias init='"`pwd`"/project_init.bash'" >> ~/.zshrc
+source ~/.zshrc
 ```
 
 Remember to use your own ```file headers```[!](https://github.com/grumbach/Piscine_CPP#git-clone-%E3%81%AE%E8%A1%93)

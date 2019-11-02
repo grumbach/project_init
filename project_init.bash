@@ -61,6 +61,8 @@ fi
 upper_case_name=`echo $name | awk '{print toupper($0)}'`
 
 # Project structure
+mkdir $name
+cd $name
 printf $B"["$G"OK"$B"] Generating "$Y"srcs"$B" and "$Y"includes"$B" folders\n"$X
 cp -R $template_path/srcs .
 cp -R $template_path/includes .
